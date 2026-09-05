@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>観葉植物クイズ｜GREEN QUIZ</title>
+<meta name="description" content="写真（イラスト）を見て観葉植物の名前を当てる5択クイズ。全10問、全問正解でファイナル問題に挑戦できます。">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<main class="app">
+
+  <!-- ========== タイトル ========== -->
+  <section id="screen-title" class="screen">
+    <p class="eyebrow">GREEN QUIZ</p>
+    <h1 class="title">観葉植物クイズ</h1>
+    <p class="lead">写真を見て、名前を5つの選択肢から選んでください。<br>全10問。<b>全問正解</b>すると、マニアックな<b>ファイナル問題</b>に挑戦できます。</p>
+    <ul class="rules">
+      <li><span class="ico">🌿</span>全10問・5択</li>
+      <li><span class="ico">⏱</span>制限時間なし</li>
+      <li><span class="ico">🏆</span>10/10でファイナル問題が解放</li>
+    </ul>
+    <p id="best" class="best" hidden></p>
+    <button id="btn-start" class="btn btn-primary btn-lg" type="button">クイズをはじめる</button>
+  </section>
+
+  <!-- ========== 出題 ========== -->
+  <section id="screen-quiz" class="screen" hidden>
+    <header class="quiz-head">
+      <div class="meta">
+        <span id="q-counter" class="counter">第 1 問 / 10</span>
+        <span id="q-score" class="score">正解 0</span>
+      </div>
+      <div class="bar"><div id="q-bar" class="bar-fill"></div></div>
+    </header>
+
+    <figure class="photo">
+      <div id="q-image" class="photo-inner"></div>
+      <p id="q-credit" class="credit" hidden></p>
+      <figcaption id="q-caption" class="photo-cap">この観葉植物の名前は？</figcaption>
+    </figure>
+
+    <div id="q-choices" class="choices" role="group" aria-label="選択肢"></div>
+
+    <div id="q-feedback" class="feedback" aria-live="polite" hidden>
+      <p class="fb-head"><span id="fb-mark" class="fb-mark"></span><span id="fb-title"></span></p>
+      <p id="fb-latin" class="fb-latin"></p>
+      <p id="fb-fact" class="fb-fact"></p>
+      <button id="btn-next" class="btn btn-primary" type="button">次の問題へ</button>
+    </div>
+  </section>
+
+  <!-- ========== 結果 ========== -->
+  <section id="screen-result" class="screen" hidden>
+    <p class="eyebrow">RESULT</p>
+    <div class="score-ring"><span id="r-score">0</span><small>/ 10</small></div>
+    <h2 id="r-rank" class="rank"></h2>
+    <p id="r-comment" class="lead"></p>
+    <div id="r-review" class="review" hidden>
+      <h3 class="review-h">まちがえた問題</h3>
+      <ul id="r-list" class="review-list"></ul>
+    </div>
+    <div class="actions">
+      <button id="btn-final" class="btn btn-final btn-lg" type="button" hidden>ファイナル問題に挑戦する</button>
+      <button id="btn-retry" class="btn btn-primary btn-lg" type="button">もう一度あそぶ</button>
+    </div>
+  </section>
+
+  <!-- ========== ファイナル結果 ========== -->
+  <section id="screen-final" class="screen" hidden>
+    <p class="eyebrow">FINAL</p>
+    <div id="f-emblem" class="emblem">🏆</div>
+    <h2 id="f-title" class="rank"></h2>
+    <p id="f-comment" class="lead"></p>
+    <div class="card-note">
+      <p id="f-name" class="fb-head"></p>
+      <p id="f-latin" class="fb-latin"></p>
+      <p id="f-fact" class="fb-fact"></p>
+    </div>
+    <button id="btn-restart" class="btn btn-primary btn-lg" type="button">最初からあそぶ</button>
+  </section>
+
+  <footer class="foot">
+    <p>写真は <a href="https://commons.wikimedia.org/" target="_blank" rel="noopener">Wikimedia Commons</a> から読み込んでいます（各写真のクレジットは回答後に表示）。<br>
+    読み込めなかった場合は内蔵イラストを表示します。<code>images/</code> に画像を置き <code>js/plants.js</code> の <code>photo</code> を設定すればローカル写真に差し替えられます。</p>
+  </footer>
+</main>
+
+<script src="js/art.js"></script>
+<script src="js/plants.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
